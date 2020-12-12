@@ -13,7 +13,7 @@ namespace Learn_donnet
         static void Main(string[] args)
         {
             string fileName = "E:\\Excel2003.xls";//定义要创建表格的位置及名称；
-            //CreatExcel(fileName);
+            CreatExcel(fileName);
             ReadExcel(fileName);
         }
         
@@ -31,7 +31,7 @@ namespace Learn_donnet
             //file2003.Close();  //关闭文件流
             //workbook2003.Close();
 
-            //XSSFWorkbook workbook2007 = new XSSFWorkbook();  //新建xlsx工作簿
+            //XSSFWorkbook workbook2007 = new XSSFWorkbook();  
             //workbook2007.CreateSheet("Sheet1");
             //workbook2007.CreateSheet("Sheet2");
             //workbook2007.CreateSheet("Sheet3");
@@ -56,7 +56,7 @@ namespace Learn_donnet
             SheetCell[0].SetCellValue(true); //赋值为bool型         
             SheetCell[1].SetCellValue(0.000001); //赋值为浮点型
             SheetCell[2].SetCellValue("Excel2003"); //赋值为字符串
-            SheetCell[3].SetCellValue("123456789987654321");//赋值为长字符串
+            SheetCell[3].SetCellValue("321");//赋值为长字符串
             for (int i = 4; i < 10; i++)
             {
                 SheetCell[i].SetCellValue(i);    //循环赋值为整形
