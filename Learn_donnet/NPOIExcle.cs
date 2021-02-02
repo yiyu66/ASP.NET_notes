@@ -1,44 +1,25 @@
-﻿using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Excel = Microsoft.Office.Interop.Excel;
+using System.Text;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace Learn_donnet
 {
-    class Program
+    class NPOIExcle
     {
-        static void Main(string[] args)
-        {
-            string fileName = "E:\\Excel2003.xls";//定义要创建表格的位置及名称；
-            CreatExcel(fileName);
-            ReadExcel(fileName);
-        }
-        
         public static void CreatExcel(string fileName)
         {
             Console.WriteLine("新建Excel文件测试");
             Console.ReadKey();
+
             Console.WriteLine("创建中...");
             HSSFWorkbook workbook2003 = new HSSFWorkbook(); //新建xls工作簿
             workbook2003.CreateSheet("Sheet1");  //新建3个Sheet工作表
             workbook2003.CreateSheet("Sheet2");
             workbook2003.CreateSheet("Sheet3");
-            //FileStream file2003 = new FileStream(@"D:\华理文件\C#\Learn_donnet\Learn_donnet\Excel2003.xls", FileMode.Create);
-            //workbook2003.Write(file2003);
-            //file2003.Close();  //关闭文件流
-            //workbook2003.Close();
-
-            //XSSFWorkbook workbook2007 = new XSSFWorkbook();  
-            //workbook2007.CreateSheet("Sheet1");
-            //workbook2007.CreateSheet("Sheet2");
-            //workbook2007.CreateSheet("Sheet3");
-            //FileStream file2007 = new FileStream(@"D:\华理文件\C#\Learn_donnet\Learn_donnet\Excel2007.xlsx", FileMode.Create);
-            //workbook2007.Write(file2007);
-            //file2007.Close();
-            //workbook2007.Close();
             HSSFSheet SheetOne = (HSSFSheet)workbook2003.GetSheet("Sheet1"); //获取名称为Sheet1的工作表
             for (int i = 0; i < 10; i++)
             {
@@ -62,12 +43,11 @@ namespace Learn_donnet
                 SheetCell[i].SetCellValue(i);    //循环赋值为整形
             }
             FileStream file2003 = new FileStream(@fileName, FileMode.Create);
-            //FileStream file2003 = new FileStream(@"D:\华理文件\C#\Learn_donnet\Learn_donnet\Excel2003.xls", FileMode.Create);
             workbook2003.Write(file2003);
+
             file2003.Close();  //关闭文件流
             workbook2003.Close();
-
-            Console.WriteLine("创建成功");
+            Console.WriteLine("创建成功"+ fileName);
             Console.ReadKey();
         }
 
@@ -105,4 +85,3 @@ namespace Learn_donnet
         }
     }
 }
-
